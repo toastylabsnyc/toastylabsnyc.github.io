@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tailwind CSS Example</title>
+  <title>Botanical/title>
   <!-- Include Tailwind CSS from CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
   <style>
     @tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 * {
@@ -57,9 +60,17 @@
   animation-timing-function: linear;
   -webkit-animation-name: ticker;
   animation-name: ticker;
+}
+.slow{
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
+}
+
+.medium{
   -webkit-animation-duration: 45s;
   animation-duration: 45s;
 }
+
 
 .ticker-wrap .ticker .ticker__item {
   display: inline-block;
@@ -88,6 +99,23 @@
   box-shadow: inset  0 -.5vh 0 0 #8db1ff;
   display: inline;
 }
+.link-div {
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    text-decoration: none; /* Removes underline from links */
+  }
+
+  /* Ensure the <a> tag takes full height and rotates text within */
+  .link-div span {
+    transform: rotate(-90deg); /* Rotates the text 90 degrees counterclockwise */
+    transform-origin: center; /* Keeps the text centered during rotation */
+    width: 100%; /* Full width to take up the full container */
+    text-align: center; /* Center text horizontally (actually vertically due to rotation) */
+  }
+
+  /* Hover styles */
+  .link-div:hover {
+    background-color: black; /* Background color on hover */
+  }
   </style>
 <body>
 <div class="grid h-screen grid-cols-8 grid-rows-6">
@@ -98,7 +126,7 @@
   </div>
   <div class="col-span-8 col-start-1 row-start-4 flex items-center overflow-hidden border-r-2 border-t-2 border-black">
     <div class="ticker-wrap">
-      <div class="ticker">
+      <div class="ticker medium">
     <div class="ticker__item">Discover your <em>green</em> thumb with Botanical - Your new plant care best friend!</div>
        <div class="ticker__item">Discover your <em>green</em> thumb with Botanical - Your new plant care best friend!</div>
       </div>
@@ -106,14 +134,14 @@
       </div>
       <div class="col-span-8 col-start-1 row-start-5 border-r-2 border-t-2 border-black">
         <div class="ticker-wrap">
-        <div class="ticker">
+        <div class="ticker slow">
          <div class="ticker__item">Learn, grow, and <b>connect</b> with fellow plant enthusiasts.</div>
         </div>
       </div>
       </div>
       <div class="col-span-8 col-start-1 row-start-6 border-b-4 border-r-2 border-t-2 border-black">       
        <div class="ticker-wrap">
-        <div class="ticker">
+        <div class="ticker slow">
          <div class="ticker__item tracking-wider">Made by <span class="custom-green-underline">Toasty Labs.</span> </div>
         <div class="ticker__item">Made by Peter, Alex and Nishil.</div>
         </div>
@@ -127,11 +155,17 @@
     <p>Bring your garden to life with the touch of your fingertips.</p>
     </div>
  </div>
-      <div class="col-start-7 row-span-3 row-start-1 border-r-2 border-black">6</div>
-      <div class="col-start-8 row-span-3 row-start-1 border-r-2 border-black">7</div>
+      <div class="col-start-7 row-span-3 row-start-1 border-r-2 border-black"> 
+          <a href="your-link-url" class="link-div block w-full h-full flex items-center justify-center bg-transparent hover:bg-black">
+    <span class="text-white font-bold text-xl leading-none rotate-90">Press</span>
+  </a>
+  
+  </div>
+      <div class="col-start-8 row-span-3 row-start-1 border-r-2 border-black">Download</div>
     </div>
   </div>
 </div>
+
 
 </body>
 </html>
